@@ -1,12 +1,20 @@
-import { Cliente } from './Cliente.js';
-import { ContaCorrente } from './ContaCorrente.js';
-import { ContaPoupanca } from './ContaPoupanca.js';
+import { Cliente } from "./Cliente.js";
+import { Diretor } from "./Funcioario/Diretor.js";
+import { Gerente } from "./Funcioario/Gerente.js";
+import { SistemaAutenticacao } from "./SistemaAutenticacao.js";
 
-const cliente1 = new Cliente("Ricardo", 11122233309);
-const contaCorrente = new ContaCorrente(0, cliente1, 1001);
-contaCorrente.depositar(500);
-contaCorrente.sacar(100);
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-contaPoupanca.sacar(10);
-console.log(contaCorrente);
-console.log(contaPoupanca);
+const diretor = new Diretor("Rodrigo", 10000, 11133344409);
+diretor.cadastrarSenha("1234");
+const gerente = new Gerente("Rodrigo", 5000, 11133345787);
+gerente.cadastrarSenha("123");
+
+
+const cliente = new Cliente("Lais", 39562057821, "456");
+
+
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "123");
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "1234");
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456");
+
+console.log(gerenteEstaLogado, diretorEstaLogado);
+console.log(`${clienteEstaLogado ? "Seje bem vindo" : "Falha na autenticação"}`)
