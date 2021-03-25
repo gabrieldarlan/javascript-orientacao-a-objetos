@@ -20,11 +20,16 @@ export class Conta {
     }
 
     sacar(valor) {
+        let taxa = 1;
+        return this._sacar(valor, taxa);
+    }
 
+    _sacar(valor, taxa) {
         if (this._saldo >= valor) {
             this._saldo -= valor;
             return valor;
         }
+        return 0;
     }
 
     depositar(valor) {
@@ -38,4 +43,5 @@ export class Conta {
         conta.depositar(valorSacado);
         valor = 20;
     }
+
 }
