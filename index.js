@@ -17,4 +17,4 @@ const diretorEstaLogado = SistemaAutenticacao.login(diretor, "1234");
 const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456");
 
 console.log(gerenteEstaLogado, diretorEstaLogado);
-console.log(`${clienteEstaLogado ? "Seje bem vindo" : "Falha na autenticação"}`)
+console.log(`${clienteEstaLogado ? "Seja bem vindo" : "Falha na autenticação"}`)
